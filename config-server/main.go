@@ -22,6 +22,15 @@ func aomConfig(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	fmt.Fprintf(w, "%s", res)
 }
 
+func stringTable(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	log.WithField("url", r.URL).Info("Received request for String Table")
+
+	res, _ := xml.MarshalIndent(BaseXMLStringTable, "", "  ")
+	w.Header().Set("Content-Type", "application/xml")
+
+	fmt.Fprintf(w, "%s", res)
+}
+
 func main() {
 	log.StandardLogger().Formatter = &log.TextFormatter{
 		FullTimestamp: true,
@@ -30,6 +39,7 @@ func main() {
 
 	router := httprouter.New()
 	router.GET("/aom", aomConfig)
+	router.GET("/stringtable", stringTable)
 
 	log.Warnln(http.ListenAndServe(fmt.Sprintf(":%d", ServerPort), router))
 	log.WithField("port", ServerPort).Infoln("Shutting down server...")
