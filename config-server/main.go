@@ -31,6 +31,12 @@ func stringTable(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	fmt.Fprintf(w, "%s", res)
 }
 
+func motd(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	log.WithField("url", r.URL).Info("Received request for Message of the Day")
+
+	fmt.Fprintf(w, "%s", "What is the meaning of life?")
+}
+
 func main() {
 	log.StandardLogger().Formatter = &log.TextFormatter{
 		FullTimestamp: true,
@@ -40,6 +46,7 @@ func main() {
 	router := httprouter.New()
 	router.GET("/aom", aomConfig)
 	router.GET("/stringtable", stringTable)
+	router.GET("/motd", motd)
 
 	log.Warnln(http.ListenAndServe(fmt.Sprintf(":%d", ServerPort), router))
 	log.WithField("port", ServerPort).Infoln("Shutting down server...")

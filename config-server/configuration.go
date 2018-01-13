@@ -65,7 +65,7 @@ var BaseXMLConfiguration = Configuration{
 		{Name: "RefreshAddressServer", Value: "1"},
 		{Name: "ESOOutageMessage", Value: ""},
 		{Name: "MaxChatChannelPop", Value: "400"},
-		{Name: "MOTD", Value: "http://localhost:8000/aomsvr/motd.txt?Language=US"},
+		{Name: "MOTD", Value: fmt.Sprintf("http://0.0.0.0:%d/motd?Language=US", ServerPort)},
 		{Name: "ServerDateTime", Value: time.Now().Format("01/02/2006 15:04:05 PM")}, // TODO: Calculate this at every request
 	},
 	StringTable: StringTableConfig{
