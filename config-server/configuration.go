@@ -5,9 +5,9 @@ import (
 	"time"
 )
 
-type XMLConfiguration struct {
+type Configuration struct {
 	Property                     []Property                     `xml:"Property"`
-	StringTable                  StringTable                    `xml:"StringTable"`
+	StringTable                  StringTableConfig              `xml:"StringTable"`
 	ChatChannel                  []ChatChannel                  `xml:"ChatChannel"`
 	MessageServer                MessageServer                  `xml:"MessageServer"`
 	ChatChannelChatChannelConfig []ChatChannelChatChannelConfig `xml:"ChatChannelConfig>ChatChannel"`
@@ -18,7 +18,7 @@ type Property struct {
 	Value string `xml:"Value,attr"`
 }
 
-type StringTable struct {
+type StringTableConfig struct {
 	URL     string `xml:"URL,attr"`
 	Version string `xml:"Version,attr"`
 }
@@ -47,7 +47,7 @@ type ChatChannelChatChannelConfig struct {
 	AppID               string `xml:"AppID,attr"`
 }
 
-var BaseXMLConfiguration = XMLConfiguration{
+var BaseXMLConfiguration = Configuration{
 	Property: []Property{
 		{Name: "BaseURL", Value: "http://aom.luisfonseca.xyz/"},
 		{Name: "MatchSchemaUrl", Value: "http://localhost:8000/aomsvr/MatchSchema.xml"},
@@ -68,7 +68,7 @@ var BaseXMLConfiguration = XMLConfiguration{
 		{Name: "MOTD", Value: "http://localhost:8000/aomsvr/motd.txt?Language=US"},
 		{Name: "ServerDateTime", Value: time.Now().Format("01/02/2006 15:04:05 PM")}, // TODO: Calculate this at every request
 	},
-	StringTable: StringTable{
+	StringTable: StringTableConfig{
 		URL: fmt.Sprintf("http://0.0.0.0:%d/stringtable?Language=US", ServerPort), Version: "1",
 	},
 	ChatChannel: []ChatChannel{

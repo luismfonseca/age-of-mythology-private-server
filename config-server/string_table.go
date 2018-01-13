@@ -1,6 +1,6 @@
 package main
 
-type XMLStringTable struct {
+type StringTable struct {
 	Version    string       `xml:"Version,attr"`
 	TableEntry []TableEntry `xml:"TableEntry"`
 }
@@ -10,7 +10,7 @@ type TableEntry struct {
 	Value string `xml:"Value,attr"`
 }
 
-var BaseXMLStringTable = XMLStringTable{
+var BaseXMLStringTable = StringTable{
 	Version: "1",
 	TableEntry: []TableEntry{
 		{ID: "0", Value: "Unable to connect with ESO (on UDP port %d) due to a network error or lack of administrator rights."},
