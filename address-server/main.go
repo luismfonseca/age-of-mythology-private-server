@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net"
 	"fmt"
+	"net"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -48,8 +48,8 @@ func main() {
 		switch udpBuffer[0] {
 		case 9:
 			reply := make([]byte, 16)
-			reply[0] = 9 // reply with the same first byte
-			copy(reply[1:], []byte {0x02, 0x00, 0xd9, 0x49}) // these 4 are unknown, but it seems to work
+			reply[0] = 9                                    // reply with the same first byte
+			copy(reply[1:], []byte{0x02, 0x00, 0xd9, 0x49}) // these 4 are unknown, but it seems to work
 			copy(reply[5:], udpClientAddress.IP)
 			// from [9:12], all 0x00s
 			copy(reply[13:], udpBuffer[1:4])
