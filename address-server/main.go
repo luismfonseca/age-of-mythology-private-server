@@ -14,6 +14,9 @@ const (
 )
 
 func main() {
+	log.StandardLogger().Formatter = &log.TextFormatter{
+		FullTimestamp: true,
+	}
 	log.WithField("port", AddressServerPort).Infoln("Starting address server")
 
 	udpAddress, err := net.ResolveUDPAddr("udp", fmt.Sprintf("%s:%d", "0.0.0.0", AddressServerPort))
