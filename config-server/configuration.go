@@ -50,7 +50,7 @@ type ChatChannelChatChannelConfig struct {
 var BaseXMLConfiguration = Configuration{
 	Property: []Property{
 		{Name: "BaseURL", Value: "http://aom.luisfonseca.xyz/"},
-		{Name: "MatchSchemaUrl", Value: "http://localhost:8000/aomsvr/MatchSchema.xml"},
+		{Name: "MatchSchemaUrl", Value: fmt.Sprintf("http://0.0.0.0:%d/match-schema", ServerPort)},
 		{Name: "FriendsServerAddress", Value: "0.0.0.0"},
 		{Name: "AccountServiceUrl", Value: "http://localhost:8000/aomsvr/validateAuth.php"},
 		{Name: "MatchServiceUrl", Value: "http://localhost:8000/match1.aom.eso.com/WebServices/MatchService.asmx"},
@@ -69,7 +69,7 @@ var BaseXMLConfiguration = Configuration{
 		{Name: "ServerDateTime", Value: time.Now().Format("01/02/2006 15:04:05 PM")}, // TODO: Calculate this at every request
 	},
 	StringTable: StringTableConfig{
-		URL: fmt.Sprintf("http://0.0.0.0:%d/stringtable?Language=US", ServerPort), Version: "1",
+		URL: fmt.Sprintf("http://0.0.0.0:%d/string-table?Language=US", ServerPort), Version: "1",
 	},
 	ChatChannel: []ChatChannel{
 		{Name: "General Chat 1", Address: "0.0.0.0", Port: "28805", InternalServiceName: "zA2XP_xx_x00", Population: "0", LastUpdate: "2.80"},
