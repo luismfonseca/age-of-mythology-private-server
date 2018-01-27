@@ -57,7 +57,10 @@ func main() {
 			log.WithField("reply", reply).WithField("ip", udpClientAddress.IP).Info("Replying to request.")
 			udpConn.WriteToUDP(reply, udpClientAddress)
 		case 10:
-			// TODO: reply back with the same message
+			// Reply back with the same message
+			reply := make([]byte, bytes)
+			copy(reply, udpBuffer)
+			udpConn.WriteToUDP(reply, udpClientAddress)
 		}
 
 		log.WithField("fist_byte", udpBuffer[0]).WithField("ip", udpClientAddress.IP).Info("Got first byte")
