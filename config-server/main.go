@@ -82,7 +82,7 @@ func main() {
 	router.GET("/string-table", stringTable)
 	router.GET("/motd", motd)
 	router.GET("/match-schema", matchSchema)
-	router.POST("/account-service-configuration", accountServiceConfig)
+	router.POST("/account-service-config", accountServiceConfig)
 	router.NotFound = http.HandlerFunc(notFound)
 	router.MethodNotAllowed = http.HandlerFunc(methodNotAllowed)
 
