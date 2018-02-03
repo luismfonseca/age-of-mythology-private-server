@@ -49,14 +49,16 @@ type ChatChannelChatChannelConfig struct {
 
 var BaseXMLConfiguration = Configuration{
 	Property: []Property{
-		{Name: "BaseURL", Value: "http://aom.luisfonseca.xyz/"},
+		{Name: "BaseURL", Value: "http://luisfonseca.xyz/"},
 		{Name: "MatchSchemaUrl", Value: fmt.Sprintf("http://0.0.0.0:%d/match-schema", ServerPort)},
-		{Name: "FriendsServerAddress", Value: "0.0.0.0"},
-		{Name: "AccountServiceUrl", Value: "http://localhost:8000/aomsvr/validateAuth.php"},
+		{Name: "FriendsServerAddress", Value: "luisfonseca.xyz"},
+		{Name: "AccountServiceUrl", Value: "https://aox.luisfonseca.xyz/aomsvr/authenticate"},
 		{Name: "MatchServiceUrl", Value: "http://localhost:8000/match1.aom.eso.com/WebServices/MatchService.asmx"},
 		{Name: "GameListServiceUrl", Value: "http://luisfonseca.xyz/aomsvr/GameListService.php"},
 		{Name: "ForwardingServerAddress", Value: "0.0.0.0"},
-		{Name: "StatsServerAddress", Value: "0.0.0.0"},
+		{Name: "StatsServerAddress", Value: "aom.luisfonseca.xyz"},
+		{Name: "AddressServer1", Value: "0.0.0.0"},
+		{Name: "AddressServer2", Value: "0.0.0.0"},
 		{Name: "RequiredBuildVersion", Value: "2"},
 		{Name: "RequiredBuildEXEVersion", Value: "14"},
 		{Name: "RequiredInternalVersion", Value: "1"},

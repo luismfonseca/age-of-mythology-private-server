@@ -29,12 +29,12 @@ type AccountServiceConfig struct {
 
 func GetAccountServiceConfig() (*AccountServiceGetConfigResponseEnvelope, error) {
 	xmlBlob, err := xml.Marshal(AccountServiceConfig {
-		PassportLoginUrl: "luisfonseca.xyz/aomsvr/login.php",
-		HotmailLoginUrl: "luisfonseca.xyz/aomsvr/login.php",
-		MSNLoginUrl: "luisfonseca.xyz/aomsvr/login.php",
+		PassportLoginUrl: "aox.luisfonseca.xyz/aomsvr/login.php",
+		HotmailLoginUrl: "aox.luisfonseca.xyz/aomsvr/login.php",
+		MSNLoginUrl: "aox.luisfonseca.xyz/aomsvr/login.php",
 		PassportSiteID: 31071,
-		MasterTicketUrl: "luisfonseca.xyz/aomsvr",
-		WebServiceUrl: "http://luisfonseca.xyz/aomsvr/ZoneAccessService.php",
+		MasterTicketUrl: "aox.luisfonseca.xyz/aomsvr",
+		WebServiceUrl: "https://aox.luisfonseca.xyz/aomsvr/ZoneAccessService.php",
 	})
 	if err != nil {
 		return nil, err
