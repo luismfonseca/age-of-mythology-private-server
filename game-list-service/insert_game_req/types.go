@@ -34,20 +34,20 @@ package insert_game_req
 		</InsertGame>
 	</soap:Body>
 </soap:Envelope>
- */
+*/
 
 type Envelope struct {
-	Soap	string	`xml:"xmlns:soap,attr"`
+	Soap string `xml:"xmlns:soap,attr"`
 
 	Game Game `xml:"Body>InsertGame>UpdatedGame"`
 }
 
 type Game struct {
-	GameName	string	`xml:"GameName,attr"`
-	KVPs	[]KVP	`xml:"KVP"`
+	GameName string `xml:"GameName,attr"`
+	KVPs     []KVP  `xml:"KVP"`
 }
 
 type KVP struct {
-	K	string	`xml:"K,attr"`
-	V	string	`xml:"V,attr"`
+	K string `xml:"K,attr"`
+	V string `xml:"V,attr"`
 }

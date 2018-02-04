@@ -1,4 +1,5 @@
 package delete_game_req
+
 /*
 <?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -8,8 +9,8 @@ package delete_game_req
 		</DeleteGame>
 	</soap:Body>
 </soap:Envelope>
- */
+*/
 
 type Envelope struct {
-	GameId string	`xml:"Body>DeleteGame>GameId"`
+	GameId string `xml:"Body>DeleteGame>GameId"`
 }

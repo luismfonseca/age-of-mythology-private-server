@@ -28,7 +28,6 @@ func passportLogin(w http.ResponseWriter, r *http.Request, ps httprouter.Params)
 	log.WithField("Passport1.4 sign-in", authorizationMap["Passport1.4 sign-in"]).Warn("username")
 	log.WithField("pwd", authorizationMap["pwd"]).Warn("password")
 
-
 	w.Header().Set("Authentication-Info", "Passport1.4 da-status=success,from-PP="+authorizationMap["Passport1.4 sign-in"]+"                                                                                                                                                                                                          ,ru=http://espassport.eso.com?mkt=EN-US&lc=1033&id=31071")
 
 	w.WriteHeader(http.StatusOK)
@@ -99,24 +98,23 @@ func masterTicket(w http.ResponseWriter, r *http.Request, ps httprouter.Params) 
 	responseBodyString :=
 		`<XMLBlobResult xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://zone.msn.com">
 			<statusCode>0</statusCode>
-			<xmlBlob>&lt;ticket&gt;&lt;duration&gt;2880000&lt;/duration&gt;&lt;sessionKey&gt;`+string(sessionKey)+`&lt;/sessionKey&gt;&lt;serviceName&gt;Master&lt;/serviceName&gt;&lt;playerName&gt;&lt;/playerName&gt;&lt;playerID&gt;0&lt;/playerID&gt;&lt;publicTokens&gt;&lt;/publicTokens&gt;&lt;iv&gt;3OkGeRUnv4zhbiKYo0CfBg==&lt;/iv&gt;&lt;productID&gt;&lt;/productID&gt;&lt;encryptedText&gt;V4pavoD/HSbll8ecenKOQjoeZ6+WVumK9n+J27oBBoSz2YdSMJ1w6hiY/U3g4UhO/B3cLOibjcSHdLaB3UvhexOFoAp/qbUu6E0nhmLQMvwEhWdqZ7W7QaBQaaxZsQli0s6ECkEPR4EUkNHBsdr3iA5PGfHR8BP1YsrU7jbat1NZ9QjIhQjjIkJGOB4ufnxSnYfja5cWZyDdiwqQwMcGi/9ztKR8Zjw3okZwl2Jov02AO9SoQSdMlbd8l1apYSZ/Z00yQIq02/vWKWgRI9of8ZsF0+HKG7gtWokvIQR4zphlNAGl72D91ylwVc/QzDOubKmxH1/K1sp5lvU/MX0biLi4PQZkAtMJUh+Qh9tuyxRKraAYHO795R5qmjnq7nQ7va2E++ZdoNLsvrPxHqpgg6ndhboRJmRY2hn/i5zy2Bx9MQx9bwDBwsI9PhKqbd9N5YiO/R7vC7ciQZWHBL9xAgVMrOH46UJame9oWIYx4CCn2R/39PKLR1fcSiadYEtHiTO90j6eabDqTF+Tk9/pSMJSE9uxL6rjF+HgM2B2c/s3Dp0li+nO4KLi/W/gHirVd/55whRNtvFWrC/+6kBA0k1YFu5Po8wkumGmGekdj990XScM7R7bPdZC1sL54LYADp9L3udFpuGmwM98cvpG+AqNY+4lSJGY3gwhzRaSVEUfp9/NrXMWaDm5Y4G5VHDL30LO0ljtBEqwBeIeE2ADoSzuUxsgji+nXuSUk74w/qUwg3b/bgSyARIibtRGhms6y9zk7/iSUcITtUhXs7NVU2d4iUF6iZHSOXewAnDdyBrqTw4MFdd3+rnFtR7X4C8xlWP4XeJIoD9uPseUTerBDEGES5WbQIx2vqH/ktpkW7j2XWAO+LNTMRXFNo7J9PBK/vrPUdNv3nZ7WLT55yWTKllb5C/9dthp8dvwySmMggqor+TH62/tbMCaiPIrgbnT1MVr9UbZL41ixt1+WzTINSr4qMwFGKwO0iCy02FrVRv6y3Kk5KfiqSK9Ku7u3uT5ykO14QFyqtxJPi1VerdwVnvPvNsmG5f2W0dnULO+KlVZK6HfTCsn5WS/KVkRNsOw+1Lw90KhhPziWXjCioOeOw==&lt;/encryptedText&gt;&lt;/ticket&gt;</xmlBlob></XMLBlobResult>`
-
+			<xmlBlob>&lt;ticket&gt;&lt;duration&gt;2880000&lt;/duration&gt;&lt;sessionKey&gt;` + string(sessionKey) + `&lt;/sessionKey&gt;&lt;serviceName&gt;Master&lt;/serviceName&gt;&lt;playerName&gt;&lt;/playerName&gt;&lt;playerID&gt;0&lt;/playerID&gt;&lt;publicTokens&gt;&lt;/publicTokens&gt;&lt;iv&gt;3OkGeRUnv4zhbiKYo0CfBg==&lt;/iv&gt;&lt;productID&gt;&lt;/productID&gt;&lt;encryptedText&gt;V4pavoD/HSbll8ecenKOQjoeZ6+WVumK9n+J27oBBoSz2YdSMJ1w6hiY/U3g4UhO/B3cLOibjcSHdLaB3UvhexOFoAp/qbUu6E0nhmLQMvwEhWdqZ7W7QaBQaaxZsQli0s6ECkEPR4EUkNHBsdr3iA5PGfHR8BP1YsrU7jbat1NZ9QjIhQjjIkJGOB4ufnxSnYfja5cWZyDdiwqQwMcGi/9ztKR8Zjw3okZwl2Jov02AO9SoQSdMlbd8l1apYSZ/Z00yQIq02/vWKWgRI9of8ZsF0+HKG7gtWokvIQR4zphlNAGl72D91ylwVc/QzDOubKmxH1/K1sp5lvU/MX0biLi4PQZkAtMJUh+Qh9tuyxRKraAYHO795R5qmjnq7nQ7va2E++ZdoNLsvrPxHqpgg6ndhboRJmRY2hn/i5zy2Bx9MQx9bwDBwsI9PhKqbd9N5YiO/R7vC7ciQZWHBL9xAgVMrOH46UJame9oWIYx4CCn2R/39PKLR1fcSiadYEtHiTO90j6eabDqTF+Tk9/pSMJSE9uxL6rjF+HgM2B2c/s3Dp0li+nO4KLi/W/gHirVd/55whRNtvFWrC/+6kBA0k1YFu5Po8wkumGmGekdj990XScM7R7bPdZC1sL54LYADp9L3udFpuGmwM98cvpG+AqNY+4lSJGY3gwhzRaSVEUfp9/NrXMWaDm5Y4G5VHDL30LO0ljtBEqwBeIeE2ADoSzuUxsgji+nXuSUk74w/qUwg3b/bgSyARIibtRGhms6y9zk7/iSUcITtUhXs7NVU2d4iUF6iZHSOXewAnDdyBrqTw4MFdd3+rnFtR7X4C8xlWP4XeJIoD9uPseUTerBDEGES5WbQIx2vqH/ktpkW7j2XWAO+LNTMRXFNo7J9PBK/vrPUdNv3nZ7WLT55yWTKllb5C/9dthp8dvwySmMggqor+TH62/tbMCaiPIrgbnT1MVr9UbZL41ixt1+WzTINSr4qMwFGKwO0iCy02FrVRv6y3Kk5KfiqSK9Ku7u3uT5ykO14QFyqtxJPi1VerdwVnvPvNsmG5f2W0dnULO+KlVZK6HfTCsn5WS/KVkRNsOw+1Lw90KhhPziWXjCioOeOw==&lt;/encryptedText&gt;&lt;/ticket&gt;</xmlBlob></XMLBlobResult>`
 
 	w.Header().Set("Authentication-Info", "Passport1.4 da-status=success,from-PP='username=asd                                                                                                                                                                                                          ',ru=http://espassport.eso.com?mkt=EN-US&lc=1033&id=31071")
 	w.Header().Set("Content-Type", "application/xml")
 
-  log.Println(responseBodyString)
+	log.Println(responseBodyString)
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(responseBodyString))
 }
 
-func notFound(w http.ResponseWriter, r *http.Request){
+func notFound(w http.ResponseWriter, r *http.Request) {
 	log.WithField("url", r.RequestURI).Warn("Received invalid request: returning 404 Not Found")
 
 	http.NotFound(w, r)
 }
 
-func methodNotAllowed(w http.ResponseWriter, r *http.Request){
+func methodNotAllowed(w http.ResponseWriter, r *http.Request) {
 	log.WithField("url", r.RequestURI).Warn("Received invalid request: returning 405 Method Not Allowed")
 
 	http.Error(w,
@@ -124,7 +122,6 @@ func methodNotAllowed(w http.ResponseWriter, r *http.Request){
 		http.StatusMethodNotAllowed,
 	)
 }
-
 
 func main() {
 	log.StandardLogger().Formatter = &log.TextFormatter{

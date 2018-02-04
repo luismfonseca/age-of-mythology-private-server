@@ -9,7 +9,7 @@ import (
 	"github.com/syndtr/goleveldb/leveldb"
 )
 
-var dummyGameBytes = []byte{1,2,3}
+var dummyGameBytes = []byte{1, 2, 3}
 
 func TestInstanceDB(t *testing.T) {
 	Convey("Creating a new db should always succeed", t, func() {
@@ -52,7 +52,7 @@ func TestInstanceDB(t *testing.T) {
 			})
 		})
 
-		Convey("ListGames", func(){
+		Convey("ListGames", func() {
 			// TODO
 		})
 	})

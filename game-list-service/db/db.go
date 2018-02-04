@@ -3,9 +3,9 @@ package db
 // Implemented using LevelDB.
 
 import (
+	"github.com/pkg/errors"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/opt"
-	"github.com/pkg/errors"
 )
 
 type Database interface {

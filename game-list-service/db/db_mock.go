@@ -45,7 +45,6 @@ func (dbMock *DatabaseMock) ListGames(offset int, amount int) (map[string][]byte
 	return args.Get(0).(map[string][]byte), args.Error(1)
 }
 
-
 func (dbMock *DatabaseMock) OnGetNumberOfGames() *mock.Call {
 	return dbMock.On("GetNumberOfGames")
 }

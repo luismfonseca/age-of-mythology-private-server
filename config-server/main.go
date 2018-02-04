@@ -56,13 +56,13 @@ func accountServiceConfig(w http.ResponseWriter, r *http.Request, ps httprouter.
 	fmt.Fprintf(w, "%s", res)
 }
 
-func notFound(w http.ResponseWriter, r *http.Request){
+func notFound(w http.ResponseWriter, r *http.Request) {
 	log.WithField("url", r.RequestURI).Warn("Received invalid request: returning 404 Not Found")
 
 	http.NotFound(w, r)
 }
 
-func methodNotAllowed(w http.ResponseWriter, r *http.Request){
+func methodNotAllowed(w http.ResponseWriter, r *http.Request) {
 	log.WithField("url", r.RequestURI).Warn("Received invalid request: returning 405 Method Not Allowed")
 
 	http.Error(w,
