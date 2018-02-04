@@ -54,7 +54,7 @@ var BaseXMLConfiguration = Configuration{
 		{Name: "FriendsServerAddress", Value: "luisfonseca.xyz"},
 		{Name: "AccountServiceUrl", Value: "https://aox.luisfonseca.xyz/aomsvr/authenticate"},
 		{Name: "MatchServiceUrl", Value: "http://localhost:8000/match1.aom.eso.com/WebServices/MatchService.asmx"},
-		{Name: "GameListServiceUrl", Value: "http://luisfonseca.xyz/aomsvr/GameListService.php"},
+		{Name: "GameListServiceUrl", Value: "http://aox.luisfonseca.xyz:8081/aomsvr/GameListService"},
 		{Name: "ForwardingServerAddress", Value: "0.0.0.0"},
 		{Name: "StatsServerAddress", Value: "aom.luisfonseca.xyz"},
 		{Name: "AddressServer1", Value: "0.0.0.0"},
