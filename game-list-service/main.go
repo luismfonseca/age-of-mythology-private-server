@@ -66,7 +66,7 @@ func gameListService(w http.ResponseWriter, r *http.Request, ps httprouter.Param
 			Soap:               "http://schemas.xmlsoap.org/soap/envelope/",
 			Xsi:                "http://www.w3.org/2001/XMLSchema-instance",
 			Xsd:                "http://www.w3.org/2001/XMLSchema",
-			PublishedGameCount: gameCount, // fixme
+			PublishedGameCount: gameCount,
 			Games:              games,
 		}
 		log.Info("Listing games")
